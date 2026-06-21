@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://j5j50agw456d"]
+
+[ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/WheelSpin.tscn" id="1_ow1sp"]
+[ext_resource type="PackedScene" uid="uid://bqxq8gse8h6s4" path="res://assets/prefabs/Character.tscn" id="2_amqk0"]
+
+[node name="Level0" type="Node2D" unique_id=44215846]
+
+[node name="WheelSpin" parent="." unique_id=1465385523 instance=ExtResource("1_ow1sp")]
+position = Vector2(940, 540)
+
+[node name="Character" parent="." unique_id=356780082 instance=ExtResource("2_amqk0")]
