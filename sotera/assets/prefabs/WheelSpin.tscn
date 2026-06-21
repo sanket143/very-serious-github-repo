@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bnekxchwnkwkm"]
+[gd_scene format=3 uid="uid://hubowr5basua"]
 
 [ext_resource type="Texture2D" uid="uid://cpa20nmftj7dq" path="res://assets/images/wheel-number-sprite.png" id="1_e2bra"]
-[ext_resource type="Script" uid="uid://c7v5j4x51bxed" path="res://src/gameplay/WheelSpin.gd" id="1_kjr7i"]
+[ext_resource type="Script" uid="uid://c7v5j4x51bxed" path="res://src/scripts/WheelSpin.gd" id="1_kjr7i"]
 [ext_resource type="Shader" uid="uid://cfup3wpvc4r5a" path="res://assets/shaders/WheelSpin.gdshader" id="2_cdcth"]
 [ext_resource type="Texture2D" uid="uid://ch5qgxqjmwbc5" path="res://assets/images/Arrow 1.png" id="4_5fd0l"]
 
@@ -14,6 +14,7 @@ script = ExtResource("1_kjr7i")
 
 [node name="WheelTexture" type="Sprite2D" parent="." unique_id=1675824674]
 material = SubResource("ShaderMaterial_1cqo2")
+position = Vector2(0, 4)
 texture = ExtResource("1_e2bra")
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1084741313]

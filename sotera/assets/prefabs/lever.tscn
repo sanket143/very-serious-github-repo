@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctimv56j7qqjo"]
 
-[ext_resource type="Script" uid="uid://ccqkywcjpdtt" path="res://Scripts/lever.gd" id="1_u5xol"]
+[ext_resource type="Script" uid="uid://ccqkywcjpdtt" path="res://src/scripts/lever.gd" id="1_u5xol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
 

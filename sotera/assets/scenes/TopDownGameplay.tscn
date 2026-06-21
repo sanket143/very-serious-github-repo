@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1y6ietlk4js2"]
 
 [ext_resource type="Texture2D" uid="uid://c1rcmeyhjohsc" path="res://assets/images/ec6f362310153168708465494f4b11e455d83960.png" id="1_d8tg0"]
-[ext_resource type="PackedScene" uid="uid://bqxq8gse8h6s4" path="res://assets/scenes/Character.tscn" id="2_it2ts"]
+[ext_resource type="PackedScene" uid="uid://bqxq8gse8h6s4" path="res://assets/prefabs/Character.tscn" id="2_it2ts"]
 
 [node name="TopDownGameplay" type="Node2D" unique_id=1809378097]
 

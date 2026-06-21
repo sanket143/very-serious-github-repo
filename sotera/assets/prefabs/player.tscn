@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b830mwodbpleq"]
 
-[ext_resource type="Script" uid="uid://qqwkkxb0xvll" path="res://assets/scripts/player.gd" id="1_4wcc8"]
+[ext_resource type="Script" uid="uid://qqwkkxb0xvll" path="res://src/scripts/player.gd" id="1_4wcc8"]
 [ext_resource type="Texture2D" uid="uid://bhwjcp7i7fl3f" path="res://assets/animations/2d/Placeholder Assets/PNG/Swordsman_lvl1/With_shadow/Swordsman_lvl1_Idle_with_shadow.png" id="1_14505"]
 [ext_resource type="Texture2D" uid="uid://cms6wli60fc76" path="res://assets/animations/2d/Placeholder Assets/PNG/Swordsman_lvl1/With_shadow/Swordsman_lvl1_Run_with_shadow.png" id="2_4wcc8"]
 [ext_resource type="AudioStream" uid="uid://n7rvjv4now1c" path="res://assets/audio/sfx/joentnt-walk-on-grass-1-291984.mp3" id="3_8sknh"]
