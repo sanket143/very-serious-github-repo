@@ -6,8 +6,9 @@ enum States{SIT_IDLE, MOVING_TO_TARGE_SIT, MOVING_OUT, CHEERING}
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var min_wait_time: int
-@export var max_wait_time: int
+@export_range(1, 3) var fun_level: int
+@export var min_wait_time: int = 5
+@export var max_wait_time: int = 10 
 
 var active_state: States
 
@@ -15,7 +16,7 @@ func _ready() -> void:
 	active_state = States.SIT_IDLE
 	on_start_sit_idle()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match active_state:
 		States.SIT_IDLE:
 			pass
@@ -62,27 +63,34 @@ func _on_timer_timeout() -> void:
 			on_cheering_end()
 
 func on_cheering_end() -> void:
-	var rnd_num: int = randi_range(1, 4)
-	print("cheering "+ str(rnd_num))
-	match rnd_num:
-			1:
-				on_start_sit_idle()
-				print("on_start_sit_idle")
-			2:
-				move_to_next_sit()
-				print("move_to_next_sit")
+	var rnd_num: float = randf()
+	var chance_to_cheer_again: float
 
-			3:
-				move_out()
-				print("move_out")
+	match fun_level:
+		1: chance_to_cheer_again = 0.20
+		2: chance_to_cheer_again = 0.40
+		3: chance_to_cheer_again = 0.70
 
-			4:
-				on_start_cheering()
-				print("on_start_cheering")
+	if rnd_num <= chance_to_cheer_again:
+		on_start_cheering()
+	else:
+		var remaining_roll: int = randi_range(1, 3)
+		match remaining_roll:
+				1:
+					on_start_sit_idle()
+					print("on_start_sit_idle")
+				2:
+					move_to_next_sit()
+					print("move_to_next_sit")
+
+				3:
+					move_out()
+					print("move_out")
+
 
 func on_sit_end():
 	var rnd_num: int = randi_range(1, 4)
-	print("sit end "+ str(rnd_num))
+	print("cheering "+ str(rnd_num))
 	match rnd_num:
 			1:
 				on_start_sit_idle()

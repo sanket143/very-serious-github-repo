@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c5jaxqi15oix3"]
 
-[ext_resource type="Script" uid="uid://dbap6ava46ejk" path="res://src/ai/Cheering Character/cheering_character.gd" id="1_amh3f"]
+[ext_resource type="Script" uid="uid://dbap6ava46ejk" path="res://src/ai/ Cheering Character/cheering_character.gd" id="1_amh3f"]
 
 [node name="CheeringCharacter" type="Node2D" unique_id=880025260]
 script = ExtResource("1_amh3f")
+fun_level = 3
 
 [node name="Timer" type="Timer" parent="." unique_id=1928097323]
 
