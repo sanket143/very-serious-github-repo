@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://xim7gid37jss"]
+
+[ext_resource type="PackedScene" uid="uid://bnekxchwnkwkm" path="res://assets/scenes/WheelSpin.tscn" id="1_25dwx"]
+
+[node name="Level0" type="Node2D" unique_id=1010563673]
+
+[node name="WheelSpin" parent="." unique_id=1465385523 instance=ExtResource("1_25dwx")]
+position = Vector2(960, 540)
+scale = Vector2(3, 3)
