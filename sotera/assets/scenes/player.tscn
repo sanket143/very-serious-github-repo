@@ -513,9 +513,7 @@ script = ExtResource("1_4wcc8")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=931025019]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_t5ofi")
-animation = &"rightrun"
-frame = 1
-frame_progress = 0.942659
+animation = &"forwardrun"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=1624050999]
 scale = Vector2(10, 10)
@@ -523,3 +521,5 @@ shape = SubResource("CapsuleShape2D_5wjao")
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=280524844]
 stream = ExtResource("3_8sknh")
+
+[connection signal="frame_changed" from="Animations" to="." method="_on_animations_frame_changed"]

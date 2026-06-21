@@ -9,7 +9,7 @@ func _ready():
 	
 func player_movement():
 #player movement
-	var direction = Input.get_vector("left", "right", "up", "down")
+	var direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	velocity = direction * speed
 	if velocity != Vector2.ZERO:
 		lastvel = velocity
@@ -50,7 +50,8 @@ func _physics_process(delta):
 #frame perfect / footsteps
 func _on_animations_frame_changed():
 	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
-		if $Animations.frame in [1, 4]:
+		if $Animations.frame in [0, 4]:
 			$Footsteps.play()
+			
 	else:
 		$Footsteps.stop()
