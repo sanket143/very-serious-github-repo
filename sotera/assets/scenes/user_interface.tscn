@@ -2,6 +2,12 @@
 
 [ext_resource type="Shader" uid="uid://d1g5jpc53vhum" path="res://assets/shaders/MainScreenShader.gdshader" id="1_kxhmu"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dqqwn"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ftb72"]
+noise = SubResource("FastNoiseLite_dqqwn")
+
 [sub_resource type="Gradient" id="Gradient_i7dvk"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
@@ -14,8 +20,22 @@ shader = ExtResource("1_kxhmu")
 shader_parameter/custom_center = Vector2(0, 0)
 shader_parameter/vignette_gradient = SubResource("GradientTexture2D_yf5fn")
 shader_parameter/circle_or_ellipse = 0.0
-shader_parameter/vignette_strength = 1.3290000631275
-shader_parameter/vignette_spread = 3.3150001099625
+shader_parameter/vignette_strength = 1.3530000642675
+shader_parameter/vignette_spread = 2.2210000579975
+shader_parameter/warp_intensity = 4.0
+shader_parameter/scanline_color = Color(1, 1, 1, 1)
+shader_parameter/scanline_amount = 4.5
+shader_parameter/scanline_movement = 1.205
+shader_parameter/scanline_opacity = 0.02000000095
+shader_parameter/scanline_thickness = 0.2950000140125
+shader_parameter/static_noise = SubResource("NoiseTexture2D_ftb72")
+shader_parameter/static_opacity = 0.026000001235
+shader_parameter/static_color = Color(1, 1, 1, 1)
+shader_parameter/vhs_threshold = 0.750000035625
+shader_parameter/vhs_change_speed = 0.005
+shader_parameter/vhs_scroll_speed = -0.1
+shader_parameter/vhs_strength = 0.1410000066975
+shader_parameter/vhs_distortion = 0.75
 
 [node name="User Interface" type="Control" unique_id=719073563]
 layout_mode = 3

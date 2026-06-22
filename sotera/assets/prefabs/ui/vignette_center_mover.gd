@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	var viewport := get_viewport()
 	
 	# this line is just for testing purposes, comment it out when not needed
-	origin_point_global_position = get_global_mouse_position() - viewport.get_visible_rect().size * 0.5
+	origin_point_global_position = get_global_mouse_position() # - viewport.get_visible_rect().size * 0.5
 	
 	var screen_pos: Vector2 = viewport.get_canvas_transform() * origin_point_global_position
 	var center: Vector2 = screen_pos / viewport.get_visible_rect().size
