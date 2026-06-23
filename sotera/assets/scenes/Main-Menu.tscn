@@ -23,31 +23,40 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3019608, 0.3019608, 0.3019608, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1855610059]
+[node name="Play" type="TextureButton" parent="." unique_id=1303463535]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -839.0
+offset_top = -529.0
+offset_right = 821.44434
+offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Play" type="TextureButton" parent="VBoxContainer" unique_id=1303463535]
-layout_mode = 2
 texture_normal = ExtResource("3_sphea")
+stretch_mode = 0
 
-[node name="VolumeSlider" type="HSlider" parent="VBoxContainer" unique_id=1020511068]
-layout_mode = 2
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=1020511068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = 459.0
+offset_right = 79.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
 max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Label" type="Label" parent="VBoxContainer/VolumeSlider" unique_id=1232109858]
+[node name="Label" type="Label" parent="VolumeSlider" unique_id=1232109858]
 layout_mode = 0
 offset_left = 115.0
 offset_top = -28.0
@@ -68,5 +77,5 @@ offset_bottom = 1078.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="value_changed" from="VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
