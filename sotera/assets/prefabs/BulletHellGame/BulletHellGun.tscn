@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dkn2kpahpr8ds"]
+
+[ext_resource type="Script" uid="uid://dcmrbldv0v0gs" path="res://src/scripts/BulletHellGame/BulletHellGun.gd" id="1_2exua"]
+[ext_resource type="PackedScene" uid="uid://dw68jd0covayh" path="res://assets/prefabs/BulletHellGame/BulletHellBullet.tscn" id="2_jmmil"]
+
+[node name="BulletHellGun" type="Node2D" unique_id=554639469]
+script = ExtResource("1_2exua")
+bulletScene = ExtResource("2_jmmil")
+firerate = 5.0
+
+[node name="FireRate" type="Timer" parent="." unique_id=907460013]
+wait_time = 0.2
+one_shot = true

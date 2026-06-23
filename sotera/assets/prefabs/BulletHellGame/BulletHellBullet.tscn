@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dw68jd0covayh"]
+
+[ext_resource type="Script" uid="uid://bi4mbn4hovhsg" path="res://src/scripts/BulletHellGame/BulletHellBullet.gd" id="1_eswpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2d4l"]
+
+[node name="BulletHellBullet" type="Node2D" unique_id=1990067038]
+script = ExtResource("1_eswpn")
+lifetime = 2.0
+speed = 1000.0
+damage = 5.0
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1076852760]
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=407229271]
+visible = false
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+color = Color(0.47058824, 0, 1, 1)
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1021852837]
+z_index = 1
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="HitArea" unique_id=1436375813]
+shape = SubResource("CircleShape2D_u2d4l")
+
+[connection signal="timeout" from="Lifetime" to="." method="disable"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_entered"]

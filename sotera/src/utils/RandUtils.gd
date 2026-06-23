@@ -14,3 +14,6 @@ static func randf()->float: #[0,1]
 
 static func randf_range(from: float, to: float)->float:
 	return rand.randf_range(from,to)
+
+static func randi_range(from:int, to:int)->int:
+	return rand.randi_range(from, to)

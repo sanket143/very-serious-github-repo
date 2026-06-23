@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://djlcsqi5rdk0t"]
+
+[ext_resource type="Script" uid="uid://c17q2wde1k5c6" path="res://src/scripts/BulletHellGame/BulletHellEnemy.gd" id="1_wyrgb"]
+[ext_resource type="Texture2D" uid="uid://k7xjblpo6fre" path="res://icon.svg" id="2_5fyfv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dv3d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avvpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5fyfv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n048l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyrgb"]
+radius = 30.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_n048l"]
+radius = 30.0
+height = 60.0
+
+[node name="BulletHellEnemy" type="CharacterBody2D" unique_id=728110053 node_paths=PackedStringArray("melee", "navAgent")]
+collision_layer = 3
+script = ExtResource("1_wyrgb")
+melee = NodePath("Melee")
+navAgent = NodePath("Navigation")
+movementSpeed = 100.0
+maxHp = 20
+damage = 5
+
+[node name="WalkBox" type="CollisionShape2D" parent="." unique_id=976067122]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_4dv3d")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1307996040]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_avvpw")
+
+[node name="Navigation" type="NavigationAgent2D" parent="." unique_id=300488299]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=454981233]
+
+[node name="Shape" type="CollisionShape2D" parent="Hurtbox" unique_id=470995526]
+scale = Vector2(3.070642, 2.1110718)
+shape = SubResource("CapsuleShape2D_n048l")
+
+[node name="Melee" type="Node2D" parent="." unique_id=877339273]
+
+[node name="MeleeHitbox" type="Area2D" parent="Melee" unique_id=663495280]
+position = Vector2(59, -49)
+
+[node name="MeleeShape" type="CollisionShape2D" parent="Melee/MeleeHitbox" unique_id=1488588044]
+position = Vector2(-26, 49)
+shape = SubResource("CircleShape2D_wyrgb")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Melee" unique_id=619547782]
+position = Vector2(34, 0)
+mesh = SubResource("SphereMesh_n048l")
+
+[connection signal="body_entered" from="Melee/MeleeHitbox" to="." method="_on_attack_hitbox_body_entered"]
+[connection signal="body_exited" from="Melee/MeleeHitbox" to="." method="_on_attack_hitbox_body_exited"]
