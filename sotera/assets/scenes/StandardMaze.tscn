@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://dgsjlqp3a2lar"]
 
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_v6fnw"]
+[ext_resource type="Script" uid="uid://iha8hb868o05" path="res://src/scripts/ExitDetection.gd" id="2_olgeh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r6e8m"]
 distance = 1.9999924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vda6"]
+size = Vector2(53, 131)
 
 [node name="StandardMaze" type="Node2D" unique_id=1981291008]
 
@@ -38,3 +42,11 @@ shape = SubResource("WorldBoundaryShape2D_r6e8m")
 position = Vector2(843, -38)
 rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_r6e8m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=402439746]
+position = Vector2(1142, 643)
+script = ExtResource("2_olgeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=871724120]
+position = Vector2(-16.5, -70.5)
+shape = SubResource("RectangleShape2D_1vda6")
