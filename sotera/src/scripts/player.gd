@@ -27,6 +27,7 @@ func idle_animation():
 		$Animations.play("leftidle")
 		
 func movement_animation():
+	$Animations.flip_h = false
 	if velocity.x == 0 and velocity.y > 0:
 		$Animations.play("forwardrun")
 	elif velocity.x == 0 and velocity.y < 0:
@@ -34,6 +35,7 @@ func movement_animation():
 	elif velocity.x > 0:
 		$Animations.play("rightrun")
 	elif velocity.x < 0:
+		$Animations.flip_h = true
 		$Animations.play("leftrun")
 
 func _physics_process(_delta):
