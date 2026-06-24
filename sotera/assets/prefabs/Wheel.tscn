@@ -2,25 +2,28 @@
 
 [ext_resource type="Script" uid="uid://c7v5j4x51bxed" path="res://src/scripts/WheelSpin.gd" id="1_kjr7i"]
 [ext_resource type="Shader" uid="uid://cfup3wpvc4r5a" path="res://assets/shaders/WheelSpin.gdshader" id="2_cdcth"]
+[ext_resource type="Texture2D" uid="uid://dhwy3baf5dqcl" path="res://assets/raw/wheel-scene/fortune_wheel/spinner.png" id="3_7ort1"]
 [ext_resource type="Texture2D" uid="uid://cxll6mipim1jw" path="res://assets/raw/wheel-scene/fortune_wheel/wheel.png" id="5_7ort1"]
 [ext_resource type="PackedScene" uid="uid://hfxe3mld5eal" path="res://assets/prefabs/WheelSpinEffect.tscn" id="6_2ii04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1cqo2"]
 shader = ExtResource("2_cdcth")
 shader_parameter/offset = 0.0
+shader_parameter/spinnerTexture = ExtResource("3_7ort1")
 
 [node name="WheelSpin" type="Node2D" unique_id=1465385523]
 script = ExtResource("1_kjr7i")
 
 [node name="WheelTexture" type="Sprite2D" parent="." unique_id=1675824674]
 material = SubResource("ShaderMaterial_1cqo2")
-position = Vector2(0, 4)
+scale = Vector2(6.3333335, 6.333335)
+texture = ExtResource("3_7ort1")
 
 [node name="WheelValue" type="Label" parent="." unique_id=718211304]
-offset_left = -19.0
-offset_top = -114.0
-offset_right = 28.0
-offset_bottom = -91.0
+offset_left = -24.0
+offset_top = -312.0
+offset_right = 23.0
+offset_bottom = -289.0
 horizontal_alignment = 1
 
 [node name="Wheel" type="Sprite2D" parent="." unique_id=752700838]
