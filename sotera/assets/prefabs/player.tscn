@@ -280,7 +280,7 @@ height = 12.4
 collision_layer = 2
 script = ExtResource("1_4wcc8")
 
-[node name="Dust" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
+[node name="DustVFX" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
 show_behind_parent = true
 position = Vector2(0, 80)
 scale = Vector2(0.99999976, 0.99999976)
@@ -296,7 +296,7 @@ position = Vector2(0, 20.999998)
 scale = Vector2(10, 10)
 shape = SubResource("CapsuleShape2D_5wjao")
 
-[node name="Dust" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
+[node name="Dust2" parent="." unique_id=1235389923 instance=ExtResource("5_hdmdu")]
 position = Vector2(5, 92)
 
 [connection signal="frame_changed" from="Animations" to="." method="_on_animations_frame_changed"]
