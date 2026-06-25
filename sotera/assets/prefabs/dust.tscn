@@ -16,7 +16,6 @@ mid_dust = NodePath("Mid")
 lightest_dust = NodePath("Light")
 
 [node name="Dark" type="CPUParticles2D" parent="." unique_id=1990625548]
-z_index = 10
 emitting = false
 lifetime = 0.62
 direction = Vector2(0, -1)
@@ -30,7 +29,6 @@ color = Color(0.36078432, 0.2784314, 0.20392157, 1)
 color_ramp = SubResource("Gradient_ummb2")
 
 [node name="Mid" type="CPUParticles2D" parent="." unique_id=1899486574]
-z_index = 10
 emitting = false
 lifetime = 0.62
 direction = Vector2(0, -1)
@@ -44,7 +42,6 @@ color = Color(0.5411765, 0.43529412, 0.3254902, 1)
 color_ramp = SubResource("Gradient_ummb2")
 
 [node name="Light" type="CPUParticles2D" parent="." unique_id=619767184]
-z_index = 10
 emitting = false
 lifetime = 0.62
 direction = Vector2(0, -1)

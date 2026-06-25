@@ -281,7 +281,13 @@ height = 12.4
 collision_layer = 2
 script = ExtResource("1_4wcc8")
 
+[node name="Dust" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
+show_behind_parent = true
+position = Vector2(0, 80)
+scale = Vector2(0.99999976, 0.99999976)
+
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=931025019]
+z_index = 11
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_t5ofi")
 animation = &"rightrun"
@@ -293,8 +299,5 @@ shape = SubResource("CapsuleShape2D_5wjao")
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=280524844]
 stream = ExtResource("3_8sknh")
-
-[node name="Dust" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
-position = Vector2(5, 92)
 
 [connection signal="frame_changed" from="Animations" to="." method="_on_animations_frame_changed"]
