@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bcnlbtdiicag"]
+
+[ext_resource type="Texture2D" uid="uid://dfvojqshhywfu" path="res://assets/raw/ui/hearts.png" id="1_bpvk3"]
+[ext_resource type="Script" uid="uid://26m832vnekwe" path="res://assets/prefabs/ui/gui.gd" id="1_fksnf"]
+[ext_resource type="Texture2D" uid="uid://q2k4r45hnd4v" path="res://assets/raw/maze/contract.png" id="3_b45cb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpvk3"]
+atlas = ExtResource("1_bpvk3")
+region = Rect2(16, 0, 15, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fksnf"]
+atlas = ExtResource("3_b45cb")
+region = Rect2(90, 0, 148, 180)
+
+[node name="Gui" type="CanvasLayer" unique_id=1881635947]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+script = ExtResource("1_fksnf")
+
+[node name="Hearts" type="HBoxContainer" parent="." unique_id=960481075]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="heart" type="TextureRect" parent="Hearts" unique_id=1201096183]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bpvk3")
+
+[node name="Contracts" type="HBoxContainer" parent="." unique_id=629596135]
+offset_top = 20.0
+offset_right = 33.0
+offset_bottom = 41.0
+
+[node name="contract" type="TextureRect" parent="Contracts" unique_id=593868574]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fksnf")
+expand_mode = 3
+flip_v = true
+
+[node name="count" type="Label" parent="Contracts" unique_id=1191956896]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

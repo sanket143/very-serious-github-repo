@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b24an7dtwwe64" path="res://assets/prefabs/ui/crt.gd" id="1_1cwdj"]
 [ext_resource type="Shader" uid="uid://d1g5jpc53vhum" path="res://assets/shaders/MainScreenShader.gdshader" id="1_kxhmu"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="3_inkw7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dqqwn"]
 frequency = 0.005
@@ -87,6 +88,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_1cwdj")
+
+[node name="Gui" parent="." unique_id=1881635947 instance=ExtResource("3_inkw7")]
+offset = Vector2(30, 10)
+transform = Transform2D(3, 0, 0, 3, 30, 10)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1066554228]
 layout_mode = 1

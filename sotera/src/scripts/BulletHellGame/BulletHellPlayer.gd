@@ -100,9 +100,10 @@ func takeDamage(damage:int)->void:
 	if currentiFrames<=0:
 		currentiFrames = iFrames
 		hp-=damage
+		Events.loose_life.emit()
 		
 	if hp<=0:
 		#Minigame over
 		print("Player Dead")
-		takeDamage(0)#crashing the game on death for funsies	
+		takeDamage(0) #crashing the game on death for funsies	
 	

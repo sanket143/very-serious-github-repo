@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bv2h13u22og43" path="res://assets/prefabs/BulletHellGame/BulletHellCharacter.tscn" id="1_mouw8"]
 [ext_resource type="Script" uid="uid://bxvm1qmxyc60c" path="res://src/scripts/BulletHellGame/BulletHellEnemySpawner.gd" id="2_k22da"]
 [ext_resource type="PackedScene" uid="uid://djlcsqi5rdk0t" path="res://assets/prefabs/BulletHellGame/BulletHellEnemy.tscn" id="3_1tnea"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_g2uak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n048l"]
 radius = 44.0
@@ -263,6 +264,8 @@ offset_left = 25.0
 offset_top = 15.0
 offset_right = 65.0
 offset_bottom = 38.0
+
+[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("4_g2uak")]
 
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]
