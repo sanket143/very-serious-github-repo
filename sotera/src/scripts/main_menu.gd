@@ -5,7 +5,7 @@ class_name MenuRoot
 @export var target_scene: String
 
 func _ready() -> void:
-	MusicPlayer.play_track(MusicPlayer.MAIN_THEME, -9.0)
+	MusicPlayer.play_track(MusicPlayer.MAIN_THEME, 0.1, 0.0, -9.0)
 
 func _on_play_pressed() -> void:
 	Events.change_level(target_scene)

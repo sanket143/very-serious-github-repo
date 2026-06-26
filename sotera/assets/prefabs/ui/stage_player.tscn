@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://4oh8xxs4vy5h" path="res://src/scripts/stage_player.gd" id="1_ptjft"]
 [ext_resource type="Texture2D" uid="uid://dw07aj3turlb" path="res://assets/raw/MC_platformer_spritesheet (2).png" id="2_2uosw"]
-
 [ext_resource type="PackedScene" uid="uid://bmy0gsxqp1ydl" path="res://assets/prefabs/dust.tscn" id="3_ehnxy"]
 [ext_resource type="AudioStream" uid="uid://n7rvjv4now1c" path="res://assets/audio/sfx/joentnt-walk-on-grass-1-291984.mp3" id="4_mogt6"]
 
@@ -185,8 +184,7 @@ script = ExtResource("1_ptjft")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1403866057]
 position = Vector2(0, -1.0000001)
 sprite_frames = SubResource("SpriteFrames_oag77")
-animation = &"Idle"
-frame_progress = 0.54790485
+animation = &"Walk"
 offset = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2046973601]
@@ -200,3 +198,5 @@ scale = Vector2(0.99999976, 0.99999976)
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=2108981516]
 stream = ExtResource("4_mogt6")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

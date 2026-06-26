@@ -20,3 +20,4 @@ func _on_first_click() -> void:
 	do_jumpscare_on_first_click = false
 	crossed_texture.visible = false
 	jump_scare.start_jumpscare()
+	MusicPlayer.stop_track(1.0)

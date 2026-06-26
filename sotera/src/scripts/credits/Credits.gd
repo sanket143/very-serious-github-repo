@@ -8,6 +8,8 @@ var credits_path: String = "res://assets/meta/credits_lits.json"
 
 func _ready() -> void:
 	_spawn_contributors()
+	MusicPlayer.stop_track(1.0)
+	MusicPlayer.play_track(MusicPlayer.CREDITS_THEME, 1.0, 0.0, -7.5)
 	
 func _spawn_contributors() -> void:
 	var json: Array = AssetsUtils.parse_array_json_res(credits_path)

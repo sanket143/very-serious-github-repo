@@ -7,7 +7,6 @@ extends Node2D
 
 func _ready() -> void:
 	curtain_system.open_full()
-	MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC)
 	var dialogs = load("res://assets/narrative/dialogue/Scene_intro.tres")
 	ui_text.on_start_dialogue(dialogs, 100)
 

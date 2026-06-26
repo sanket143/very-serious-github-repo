@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xxop4o3j0gdr"
+path="res://.godot/imported/Marcyiscool Boss Battle (adapted).ogg-04177b26901aae0ae3cfa4180aa928ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/ost/Marcyiscool Boss Battle (adapted).ogg"
+dest_files=["res://.godot/imported/Marcyiscool Boss Battle (adapted).ogg-04177b26901aae0ae3cfa4180aa928ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bc7ho3a14urtv"
+path="res://.godot/imported/main theme - dart monke (adapted).ogg-2a4ac10813c38a80095d48fe0bdb8a77.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/ost/main theme - dart monke (adapted).ogg"
+dest_files=["res://.godot/imported/main theme - dart monke (adapted).ogg-2a4ac10813c38a80095d48fe0bdb8a77.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -61,7 +61,7 @@ func jumpscare(type: JumpscareType) -> void:
 	_state = JumpscareControllerState.JUMP
 	
 func _init_voice() -> void:
-	SoundPool.play_random_shuffled_sound(SoundPool.JUMPSCARE)
+	SoundPool.play_random_sound(SoundPool.JUMPSCARE)
 	
 func stop_jumpscare() -> void:
 	visible = false

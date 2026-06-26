@@ -106,6 +106,9 @@ func start_closing_curtains() -> void:
 	$WheelSpinEffect.start_slowdown()
 	$WheelSpinEffect2.start_slowdown()
 	curtains.close_full()
+	SoundPool.stop_sound(SoundPool.AUDIENCE_CHEER, 5.0)
 
 func _on_lever_lever_pulled() -> void:
 	start_spinning()
+	SoundPool.play_sound(SoundPool.LEVER_PULL)
+	SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)

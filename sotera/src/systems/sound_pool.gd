@@ -56,6 +56,15 @@ const UI_SELECT : Array[AudioStream] = [
 
 const UI_PLAY : AudioStream = preload("res://assets/audio/ui_play.wav")
 const UI_PICKUP : AudioStream = preload("res://assets/audio/ui_idk_1.wav")
+
+const DIALOGUE_NOISE_REGULAR_1 : AudioStream = preload("res://assets/audio/Voice 1 (re).wav")
+
+const DIALOGUE_NOISE_STEVE_1 : AudioStream = preload("res://assets/audio/Voice 2.wav")
+const DIALOGUE_NOISE_STEVE_2 : AudioStream = preload("res://assets/audio/Voice 2 (high).wav")
+const DIALOGUE_NOISES_STEVE : Array[AudioStream] = [
+	DIALOGUE_NOISE_STEVE_1,
+	#DIALOGUE_NOISE_STEVE_2,
+]
 #
 
 # Concurrency: how many sounds of the same type can play at the same time
@@ -88,6 +97,8 @@ func _get_max_concurrent(sound : AudioStream) -> int:
 
 	if sound in PLAYER_FOOTSTEPS:
 		return 2
+	if sound in DIALOGUE_NOISES_STEVE:
+		return 1
 
 	return _SOUND_DEFAULT_CONCURRENCY
 
@@ -135,10 +146,18 @@ func play_random_shuffled_sound(sounds: Array) -> void:
 	play_sound(sounds[idx])
 
 
-func stop_sound(sound : AudioStream) -> void:
+func stop_sound(sound: AudioStream, fade_duration: float = 0.0) -> void:
 	for p in _players:
 		if p.stream == sound:
-			p.stop()
+			if fade_duration > 0.0:
+				var tween = create_tween()
+				tween.tween_property(p, "volume_db", -80.0, fade_duration)
+				tween.tween_callback(func():
+					p.stop()
+					p.volume_db = 0.0
+				)
+			else:
+				p.stop()
 
 
 func stop_all_sounds():
@@ -177,6 +196,8 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 		player.volume_db = randf_range(-12.2, -9.8)
 	if _sound == UI_PLAY:
 		player.volume_db = -3.0
+	if _sound in DIALOGUE_NOISES_STEVE:
+		player.volume_db = randf_range(-5.5, 3.8)
 	if _sound in JUMPSCARE:
 		player.volume_db = randf_range(-3.0, 6.5)
 	
@@ -207,6 +228,8 @@ func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -
 		player.pitch_scale = randf_range(0.64, 0.74)
 	if _sound in UI_SELECT:
 		player.pitch_scale = randf_range(0.64, 0.74)
+	if _sound in DIALOGUE_NOISES_STEVE:
+		player.pitch_scale = randf_range(0.75, 1.0)
 	if _sound in JUMPSCARE:
 		player.pitch_scale = randf_range(0.98, 1.1)
 	

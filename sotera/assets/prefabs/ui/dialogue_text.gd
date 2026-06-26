@@ -46,6 +46,7 @@ func _show_line(line: String) -> void:
 	var chars = line.replace('"',"").split()
 	for idx in chars:
 		label.text = label.text + idx
+		SoundPool.play_random_shuffled_sound(SoundPool.DIALOGUE_NOISES_STEVE)
 		await get_tree().create_timer(typing_speed).timeout
 	timer = 0.5
 	is_typing = false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqgtr64p2cnll"
+path="res://.godot/imported/main theme - Mayle96 (loop).ogg-4e4e253acd5224f6ffb0f726cca3985c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/ost/main theme - Mayle96 (loop).ogg"
+dest_files=["res://.godot/imported/main theme - Mayle96 (loop).ogg-4e4e253acd5224f6ffb0f726cca3985c.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=3.192
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -106,4 +106,4 @@ func _process_input(is_pressed: bool) -> void:
 		_on_click()
 		
 func _on_click() -> void:
-	SoundPool.play_sound(SoundPool.UI_PLAY)
+	SoundPool.play_random_sound(SoundPool.UI_CLICK)

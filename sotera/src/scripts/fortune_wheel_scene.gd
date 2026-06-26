@@ -5,7 +5,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	curtains.open_full()
-	MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC)
+	MusicPlayer.play_track(MusicPlayer.STAGE_MUSIC, 0.1, 0.0, -7.5)
 	$"DialogueText".start_next_dialog()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	

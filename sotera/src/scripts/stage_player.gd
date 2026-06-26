@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var speed: int = 500
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var footsteps: AudioStreamPlayer2D = $Footsteps
 @onready var dust: Node2D = $Dust
 
 
@@ -16,12 +15,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("Walk")
 		animated_sprite_2d.flip_h = direction.x < 0
 		dust._on_player_start_moving()
-		if not footsteps.playing:
-			footsteps.play()
+	
 	else:
 		dust._on_player_stop_moving()
-		footsteps.stop()
 		velocity = Vector2.ZERO
 		animated_sprite_2d.play("Idle")
 
 	move_and_slide()
+
+func _on_animated_sprite_2d_frame_changed():
+	if animated_sprite_2d.animation == "Walk":
+		if animated_sprite_2d.frame in [0, 4]:
+			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS)

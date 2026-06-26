@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b72jfyak5xwoh"
+path="res://.godot/imported/gameshow intro.mp3-d73599ba17b62d2d140a05a33d6d952f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/ost/gameshow intro.mp3"
+dest_files=["res://.godot/imported/gameshow intro.mp3-d73599ba17b62d2d140a05a33d6d952f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=6.464
+bpm=0.0
+beat_count=0
+bar_beats=4

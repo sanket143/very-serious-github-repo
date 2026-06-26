@@ -15,7 +15,7 @@ extends Node2D
 var jumpscare_active: bool = false
 
 func _ready() -> void:
-	MusicPlayer.play_track(MusicPlayer.SCARY, -9.0)
+	MusicPlayer.play_track(MusicPlayer.SCARY, 0.5, 0.0, -3.0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _exit_tree() -> void:
