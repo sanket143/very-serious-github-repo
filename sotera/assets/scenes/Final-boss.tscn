@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://chi4xu34xyo8u"]
+
+[ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_ux28w"]
+[ext_resource type="Texture2D" uid="uid://deaci7ovohd45" path="res://assets/raw/wheel-scene/stage_empty.png" id="2_ux28w"]
+[ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_ue57p"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="7_cpefy"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="8_c60e0"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="9_71m4y"]
+[ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/mini_game_tracker.tscn" id="10_67sxn"]
+[ext_resource type="Script" uid="uid://bhqfew7feq5tr" path="res://src/scripts/MiniGameTracker.gd" id="11_5asdo"]
+[ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="12_2c0u1"]
+[ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="13_usqgd"]
+[ext_resource type="Texture2D" uid="uid://cllxxawp4bkrl" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_quiz.png" id="14_2ffx3"]
+[ext_resource type="Texture2D" uid="uid://do1jnfte64gyp" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_scary.png" id="15_fiq2x"]
+[ext_resource type="PackedScene" uid="uid://bl5kwk28ennhq" path="res://assets/prefabs/ui/dialogue_text.tscn" id="16_hgyh4"]
+
+[node name="Root" type="Node" unique_id=21760760 node_paths=PackedStringArray("curtains")]
+script = ExtResource("1_ux28w")
+curtains = NodePath("Curtains")
+
+[node name="Stage" type="Sprite2D" parent="." unique_id=969645194]
+position = Vector2(960.0001, 544)
+scale = Vector2(6.0027785, 6.0027785)
+texture = ExtResource("2_ux28w")
+
+[node name="Steven" parent="." unique_id=2100930359 instance=ExtResource("4_ue57p")]
+position = Vector2(925, 813.00006)
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("7_cpefy")]
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("8_c60e0")]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("9_71m4y")]
+
+[node name="MiniGameTracker" parent="." unique_id=914605974 instance=ExtResource("10_67sxn")]
+script = ExtResource("11_5asdo")
+game_icons = {
+"bullet": ExtResource("12_2c0u1"),
+"maze": ExtResource("13_usqgd"),
+"quiz": ExtResource("14_2ffx3"),
+"scary": ExtResource("15_fiq2x")
+}
+
+[node name="DialogueText" parent="." unique_id=998366939 instance=ExtResource("16_hgyh4")]
+offset_left = 824.0
+offset_top = 316.0
+offset_right = -894.33325
+offset_bottom = -668.0
