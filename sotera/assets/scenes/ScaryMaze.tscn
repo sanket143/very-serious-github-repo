@@ -9,49 +9,12 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owkrm"]
 distance = 1.9999924
 
-[sub_resource type="Animation" id="Animation_3wkap"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player2/PointLight2D:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_hbjed"]
-resource_name = "gradual_dim"
-length = 25.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player2/PointLight2D:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 20, 24.1, 24.233334, 24.366667, 24.566668, 24.7, 24.833334, 24.966667),
-"transitions": PackedFloat32Array(1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.5709707, 0.50967777, 1), Color(0.9999998, 0.1738315, 0.13045305, 1), Color(0.40400505, 0, 0, 1), Color(1, 0.17254902, 0.12941177, 1), Color(0.40400505, 0, 0, 1), Color(1, 0.17254902, 0.12941177, 1), Color(0.40400505, 0, 0, 1), Color(1, 0.17254902, 0.12941177, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4yld"]
-_data = {
-&"RESET": SubResource("Animation_3wkap"),
-&"gradual_dim": SubResource("Animation_hbjed")
-}
-
 [node name="ScaryMaze" type="Node2D" unique_id=1149450057]
 
 [node name="ScaryMazeLv1" parent="." unique_id=631495778 node_paths=PackedStringArray("point_light", "darkness", "visual_timer_anim") instance=ExtResource("1_owkrm")]
 point_light = NodePath("../Player2/PointLight2D")
 darkness = NodePath("../CanvasModulate")
-visual_timer_anim = NodePath("../VisualTimerAnim")
+visual_timer_anim = NodePath("")
 
 [node name="AmbianceSoundTimer" type="Timer" parent="ScaryMazeLv1" unique_id=2068793606]
 

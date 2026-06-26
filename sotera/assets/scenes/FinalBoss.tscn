@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
 [ext_resource type="Texture2D" uid="uid://dt7idby6ioc1h" path="res://assets/images/12.png" id="3_1hrp2"]
-[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
 [ext_resource type="Texture2D" uid="uid://dw07aj3turlb" path="res://assets/raw/MC_platformer_spritesheet (2).png" id="5_jil5c"]
 [ext_resource type="Theme" uid="uid://o5t7jr4vdtem" path="res://assets/prefabs/ui/option_button_theme.tres" id="5_u6exl"]
 [ext_resource type="Texture2D" uid="uid://b4meiyl3qtq4d" path="res://assets/raw/boss_hair_anim5-ezgif.com-gif-to-sprite-converter (1).png" id="5_vkukm"]
@@ -364,5 +364,8 @@ texture = ExtResource("10_u6exl")
 [node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
 position = Vector2(960, 540)
 script = ExtResource("11_klscq")
+
+[connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Options/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
 
 [editable path="Control"]

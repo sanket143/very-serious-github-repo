@@ -29,7 +29,6 @@ const PLAYER_FOOTSTEPS : Array[AudioStream] = [
 
 const PLAYER_FOOTSTEP_STONE : AudioStream = preload("res://assets/audio/sfx/footstep_stone_1.wav")
 
-
 const ZOMBIE_BITE : AudioStream = preload("res://assets/audio/Zombie Bite (shava) .wav")
 const ZOMBIE_GROWL_1 : AudioStream = preload("res://assets/audio/Zombie Growl 1 (shava).wav")
 const ZOMBIE_GROWL_2 : AudioStream = preload("res://assets/audio/Zombie Growl 2 (shava).wav")
@@ -48,6 +47,8 @@ const KNIFE_STAB : Array[AudioStream] = [
 const KNIFE_SHING : AudioStream = preload("res://assets/audio/Knife Shing.wav")
 
 const MINIGAME_FAIL : AudioStream = preload("res://assets/audio/minigame_fail.wav")
+
+const BOSS_DEATH : AudioStream = preload("res://assets/audio/sfx/boss beat fanfare with snare.mp3")
 
 const JUMPSCARE_1 : AudioStream = preload("res://assets/audio/Jumpscare 1.wav") # TODO
 const JUMPSCARE_2 : AudioStream = preload("res://assets/audio/Jumpscare 2 (shava).wav")
@@ -79,7 +80,6 @@ const SPOOKY_AMBIANCE_ONESHOT : Array[AudioStream] = [
 	SPOOKY_AMBIANCE_ELEMENT_6,
 ]
 
-
 const CONTRACT_PICKUP : AudioStream = preload("res://assets/audio/sfx/Contract fx (shava).wav")
 
 # UI
@@ -97,8 +97,18 @@ const UI_SELECT : Array[AudioStream] = [
 	UI_SELECT_2,
 ]
 
+const UI_SELECT_BOSS_1 : AudioStream = preload("res://assets/audio/ui_select_boss_1.wav")
+const UI_SELECT_BOSS_2 : AudioStream = preload("res://assets/audio/ui_select_boss_2.wav")
+const UI_SELECT_BOSS : Array[AudioStream] =  [
+	UI_SELECT_BOSS_1,
+	UI_SELECT_BOSS_2,
+]
+
 const UI_PLAY : AudioStream = preload("res://assets/audio/ui_play.wav")
 const UI_PICKUP : AudioStream = preload("res://assets/audio/ui_idk_1.wav")
+
+const UI_CORRECT : AudioStream = preload("res://assets/audio/ui_correct.wav")
+const UI_WRONG : AudioStream = preload("res://assets/audio/ui_incorrect.wav")
 
 const DIALOGUE_NOISE_REGULAR_1 : AudioStream = preload("res://assets/audio/Voice 1 (re).wav")
 
@@ -118,6 +128,8 @@ const _SOUND_CONCURRENCY : Dictionary = {
 	MINIGAME_FAIL : 1,
 	ZOMBIE_BITE : 2,
 	PLAYER_FOOTSTEP_STONE : 1,
+	UI_CORRECT : 1,
+	UI_WRONG : 1,
 } 
 
 const _SOUND_DEFAULT_CONCURRENCY : int = 3
@@ -144,6 +156,8 @@ func _get_max_concurrent(sound : AudioStream) -> int:
 	if sound in DIALOGUE_NOISES_STEVE:
 		return 1
 	if sound in SPOOKY_AMBIANCE_ONESHOT:
+		return 2
+	if sound in UI_SELECT_BOSS:
 		return 2
 
 	return _SOUND_DEFAULT_CONCURRENCY
@@ -248,8 +262,16 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 		player.volume_db = randf_range(-12.2, -9.8)
 	if _sound in UI_SELECT:
 		player.volume_db = randf_range(-12.2, -9.8)
+	if _sound in UI_SELECT_BOSS:
+		player.volume_db = randf_range(-2.8, -0.8)
+	if _sound == BOSS_DEATH:
+		player.volume_db = -6.0
 	if _sound == UI_PLAY:
 		player.volume_db = -3.0
+	if _sound == UI_CORRECT:
+		player.volume_db = randf_range(-1.5, 2.0)
+	if _sound == UI_WRONG:
+		player.volume_db = randf_range(-6.0, -3.5)
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.volume_db = randf_range(-5.5, 3.8)
 	if _sound in JUMPSCARE_V1:
@@ -264,6 +286,7 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 
 # Pitch control
 func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -> void:
+	player.pitch_scale = 1.0
 	if _sound == LEVER_PULL:
 		player.pitch_scale = randf_range(0.88, 1.02)
 	if _sound == WHEEL_START:
@@ -294,6 +317,8 @@ func _apply_pitch_modulation(player : AudioStreamPlayer, _sound : AudioStream) -
 		player.pitch_scale = randf_range(0.64, 0.74)
 	if _sound in UI_SELECT:
 		player.pitch_scale = randf_range(0.64, 0.74)
+	if _sound in UI_SELECT_BOSS:
+		player.pitch_scale = randf_range(0.94, 1.14)
 	if _sound in DIALOGUE_NOISES_STEVE:
 		player.pitch_scale = randf_range(0.75, 1.0)
 	if _sound in JUMPSCARE_V1:
