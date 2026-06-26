@@ -21,7 +21,7 @@ player = NodePath("../Player")
 [node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=1649787983]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D4" unique_id=2074031186]
-position = Vector2(887, 1128)
+position = Vector2(1052, 1550)
 shape = SubResource("WorldBoundaryShape2D_owkrm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="worldboundary" unique_id=1954927351]
@@ -32,6 +32,7 @@ rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_owkrm")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="worldboundary" unique_id=1031364664]
+position = Vector2(696, 11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldboundary/StaticBody2D3" unique_id=452126651]
 position = Vector2(1968, 467)
@@ -53,6 +54,8 @@ position = Vector2(-2, 18)
 scale = Vector2(29.171877, 27.61719)
 texture = ExtResource("3_77in4")
 texture_scale = 1.2
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1338842814]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1333303275]
 color = Color(0, 0, 0, 1)
