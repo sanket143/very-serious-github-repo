@@ -52,5 +52,5 @@
   { "name": "Contributor 47", "discord_name": "user47", "roles": "Artist", "joined_at": "2026-02-16" },
   { "name": "Contributor 48", "discord_name": "user48", "roles": "Composer", "joined_at": "2026-02-17" },
   { "name": "Contributor 49", "discord_name": "user49", "roles": "Developer", "joined_at": "2026-02-18" },
-  { "name": "Contributor 50", "discord_name": "user50", "roles": "Community Manager, "joined_at": "2026-02-19"" }
+  { "name": "Contributor 50", "discord_name": "user50", "roles": "Community Manager", "joined_at": "2026-02-19" }
 ]
