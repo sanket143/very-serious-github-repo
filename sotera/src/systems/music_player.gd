@@ -11,7 +11,7 @@ const MINIGAME : AudioStream = preload("res://assets/audio/music/ost/very seriou
 const SCARY : AudioStream = preload("res://assets/audio/music/ost/mini game theme - dart monke.ogg")
 const BULLET_THEME : AudioStream = preload("res://assets/audio/music/ost/Marcyiscool Boss Battle (adapted).ogg")
 const CREDITS_THEME : AudioStream = preload("res://assets/audio/music/ost/Marcyiscool Mini game D (adapted).ogg")
-const FINAL_BATTLE : AudioStream = preload("res://assets/audio/music/ost/Some bullshi (boss theme) - dart monke.mp3")
+const FINAL_BATTLE : AudioStream = preload("res://assets/audio/music/ost/boss.mp3")
 const GAME_OVER : AudioStream = preload("res://assets/audio/music/ost/Cheesy Game Over.ogg")
 
 var _curr_idx : int = 0

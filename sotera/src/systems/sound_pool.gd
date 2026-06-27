@@ -130,6 +130,7 @@ const _SOUND_CONCURRENCY : Dictionary = {
 	PLAYER_FOOTSTEP_STONE : 1,
 	UI_CORRECT : 1,
 	UI_WRONG : 1,
+	LEVER_PULL : 1,
 } 
 
 const _SOUND_DEFAULT_CONCURRENCY : int = 3
@@ -231,9 +232,9 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 	if _sound == LEVER_PULL:
 		player.volume_db = randf_range(-6.0, -4.5)
 	if _sound == WHEEL_START:
-		player.volume_db = randf_range(-8.0, -4.5)
+		player.volume_db = randf_range(-5.0, -3.5)
 	if _sound == WHEEL_STOP:
-		player.volume_db = randf_range(-12.0, -8.5)
+		player.volume_db = randf_range(-9.0, -7.5)
 	if _sound == MINIGAME_SELECTED:
 		player.volume_db = randf_range(-1.5, 0.5)
 	if _sound == AUDIENCE_CHEER:
@@ -255,7 +256,7 @@ func _apply_custom_sound_volume(player : AudioStreamPlayer, _sound : AudioStream
 	if _sound == MINIGAME_FAIL:
 		player.volume_db = randf_range(-6.0, -5.0)
 	if _sound in PLAYER_FOOTSTEPS:
-		player.volume_db = randf_range(-16.0, -14.5)
+		player.volume_db = randf_range(-14.0, -12.5)
 	if _sound == PLAYER_FOOTSTEP_STONE:
 		player.volume_db = randf_range(-19.0, -17.5)
 	if _sound in UI_CLICK:
