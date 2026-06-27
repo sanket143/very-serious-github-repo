@@ -172,7 +172,7 @@ func start_next_dialog() -> void:
 		var dialogs = load("res://assets/narrative/dialogue/boss_intro.tres")
 		on_start_dialogue(dialogs, 100)
 		speech_started.emit()
-		
-	# dirty fix
-	if Globals.Total_contracts != 0:
-		on_stop_dialogue()
+
+	# # dirty fix
+	# if Globals.Total_contracts != 0:
+	# 	on_stop_dialogue()
