@@ -59,7 +59,7 @@ var value_idx: int = 2;
 func _ready() -> void:
 	offset = Events.get_spinner_start_offset()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	match _state:
 		WheelState.IDLE: return
 		WheelState.WAIT_CURTAINS_TO_CLOSE: check_if_curtains_are_closed()
