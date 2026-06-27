@@ -195,6 +195,6 @@ offset_bottom = 1087.0
 [node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_gveds")]
 
 [node name="Player2" parent="." unique_id=1229557920 instance=ExtResource("7_eytmt")]
-position = Vector2(1844, 567)
+position = Vector2(945, 618)
 
 [node name="Camera2D" type="Camera2D" parent="Player2" unique_id=26781501]

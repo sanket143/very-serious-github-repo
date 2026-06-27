@@ -95,7 +95,7 @@ color = Color(0, 0, 0, 1)
 [node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_3wkap")]
 
 [node name="Player2" parent="." unique_id=1048146834 instance=ExtResource("5_3wkap")]
-position = Vector2(2069, 288)
+position = Vector2(195, 194)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player2" unique_id=723324708]
 scale = Vector2(29.171877, 27.61719)

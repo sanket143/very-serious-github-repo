@@ -306,9 +306,6 @@ shape = SubResource("CapsuleShape2D_qr455")
 
 [node name="BulletHellGun" parent="BulletHellPlayer" unique_id=554639469 instance=ExtResource("8_qr455")]
 
-[node name="Contract" parent="." unique_id=2146452445 instance=ExtResource("4_i37ik")]
-position = Vector2(648, 886)
-
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]
 [connection signal="body_entered" from="BulletHellPlayer/HurtBox" to="BulletHellPlayer" method="take_damage"]
