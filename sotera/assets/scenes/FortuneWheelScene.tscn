@@ -161,7 +161,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1472, 840)
 
 [node name="StagePlayer" parent="World/FG" unique_id=143653979 instance=ExtResource("9_8cy1c")]
-position = Vector2(1655.9999, 959.99994)
+position = Vector2(1274.0001, 957.00006)
 
 [node name="Group Curtains" type="Node" parent="." unique_id=2052619427]
 
