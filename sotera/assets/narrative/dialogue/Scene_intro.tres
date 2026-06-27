@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_agtrx")
-dialogue_lines = Array[String](["Welcome Everybody! Thank you so much for coming today!", "Welcome! To Wheel of Damnation!", "We've got a very special guest with us today. Lets see if she has what it takes to survive...", "THE WHEEL OF DAMNATION!!!", "That's right! You're watching the best and only show in the nine layers! Made specifically for your demonic entertainment by our mysterious and terrifying producer! Now don't be scared dear. You signed the contract. It's not as though if you lose you'll go to hell or anything!\"", "Now folks, what should she do?", "SPIN THAT WHEEL!!"])
+dialogue_lines = Array[String](["Welcome Everybody! Thank you so much for coming today!", "Welcome! To Wheel of Damnation!", "We've got a very special guest with us today. Lets see if she has what it takes to survive...", "THE WHEEL OF DAMNATION!!!", "That's right! You're watching the best and only show in the nine layers! Made specifically for your demonic entertainment by our terrifying producer!", "Now folks, what should she do?", "SPIN THAT WHEEL!!"])
 metadata/_custom_type_script = "uid://bd6vca075g71m"

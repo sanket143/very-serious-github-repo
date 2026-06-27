@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_jplcv")
-dialogue_lines = Array[String](["My Granny could've got two contracts with her eyes closed", "SPIN THAT WHEEL!!!"])
+dialogue_lines = Array[String](["WHAT?! there's no way you actually got three contracts", "You've done it now. Our producer is gonna have something to say about you."])
 metadata/_custom_type_script = "uid://bd6vca075g71m"
