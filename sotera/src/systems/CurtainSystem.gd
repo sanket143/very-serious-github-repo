@@ -25,6 +25,8 @@ var _state: CurtainSystemState = CurtainSystemState.CLOSED
 var time: float
 var max_time: float
 
+var locked: bool = false # visible, upfdates but action disabled
+
 
 
 # --------------------------------- little open params ----------------------------------
@@ -139,6 +141,8 @@ func _update_little() -> void:
 	curtain_right.position = origin_right + delta_offset
 
 func open_full() -> void:
+	if locked: return
+	
 	var skip: bool = _state == CurtainSystemState.OPENING_FULL || _state == CurtainSystemState.OPEN_FULL
 	if skip: return
 	
@@ -154,6 +158,8 @@ func open_full() -> void:
 	_state = CurtainSystemState.OPENING_FULL
 	
 func close_full() -> void:
+	if locked: return
+	
 	var skip: bool = _state == CurtainSystemState.CLOSING_FULL || _state == CurtainSystemState.CLOSED
 	if skip: return
 	
@@ -171,6 +177,8 @@ func ajust_full_open_origin() -> void:
 	
 
 func open_both_certains_a_little() -> void:
+	if locked: return
+	
 	var skip: bool = !(_state == CurtainSystemState.CLOSED || _state == CurtainSystemState.CLOSING_A_LITTLE)
 	if skip: return
 	
@@ -182,6 +190,8 @@ func open_both_certains_a_little() -> void:
 	_state = CurtainSystemState.OPENING_A_LITTLE
 	
 func close_both_certains_a_little() -> void:
+	if locked: return
+	
 	var skip: bool = !(_state == CurtainSystemState.OPEN_A_LITTLE || _state == CurtainSystemState.OPENING_A_LITTLE)
 	if skip: return
 	
@@ -195,3 +205,6 @@ func opened() -> bool:
 	
 func closed() -> bool:
 	return _state == CurtainSystemState.CLOSED
+	
+func lock() -> void:
+	locked = true

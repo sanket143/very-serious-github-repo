@@ -5,6 +5,8 @@ class_name CrtControl
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var crt_motion: CrtMotion
 
+@onready var loading: ColorRect = $LoadingScreen
+
 
 func _ready() -> void:
 	crt_motion = CrtMotion.new($ColorRect)
@@ -15,7 +17,7 @@ func _ready() -> void:
 	Events.play_loading_screen.connect(load_screen)
 	Events.stop_loading_screen.connect(stop_load_screen)
 	
-	$LoadingScreen.color.a = 1.0
+	loading.color.a = 1.0
 
 func _process(delta: float) -> void:
 	crt_motion.update(delta)
@@ -32,11 +34,11 @@ func fade_in() -> void:
 
 func load_screen() -> void:
 	# Show black screen
-	$LoadingScreen.show()
+	loading.show()
 
 func stop_load_screen() -> void:
 	# Hides black screen
-	$LoadingScreen.hide()
+	loading.hide()
 
 func adjust_to_full_screen() -> void:
 	var full_screen_size: Vector2 = get_viewport_rect().size
@@ -55,6 +57,19 @@ func start_darken(focus_origin: Vector2) -> void:
 	
 func stop_darken() -> void:
 	crt_motion.start_lighten()
+	
+func dark_flick(available_time: float) -> void:
+	var rect: ColorRect = $ColorRect2
+	rect.visible = true
+	rect.color = Color(0,0,0,1)
+	
+	var tween = create_tween()
+	var wait_30_percents: float = available_time * 0.18
+	var left_time: float = available_time - wait_30_percents
+
+	#tween.tween_property(rect, "color:a", 1.0, 0.0) # insatnt
+	tween.tween_interval(wait_30_percents) # wait_30_percents dark
+	tween.tween_property(rect, "color:a", 0.5, left_time) # go to 1.0 -> 0.5 in left_time
 	
 func reset() -> void:
 	crt_motion.reset()

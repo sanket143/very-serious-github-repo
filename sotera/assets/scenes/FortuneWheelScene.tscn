@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dcts5wo7s6817" path="res://assets/raw/wheel-scene/audience/DemonAudience_6_Vampire.png" id="9_n1cx3"]
 [ext_resource type="PackedScene" uid="uid://cchy7yoogu2m4" path="res://assets/prefabs/ui/FortuneWheelPauseUI.tscn" id="10_6vnka"]
 [ext_resource type="Texture2D" uid="uid://c6ebwkifxh6du" path="res://assets/raw/wheel-scene/audience/DemonAudience_7_Hockeymask.png" id="10_jkhbp"]
+[ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="11_byliy"]
 [ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/ui/trackers/mini_game_tracker.tscn" id="11_cl5pl"]
 [ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="13_6vnka"]
 [ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="14_4tcif"]
@@ -34,9 +35,11 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]
 distance = 3.9999962
 
-[node name="Root" type="Node" unique_id=1266003346 node_paths=PackedStringArray("curtains")]
+[node name="Root" type="Node" unique_id=1266003346 node_paths=PackedStringArray("curtains", "jumpscare")]
 script = ExtResource("1_d7hmc")
 curtains = NodePath("Group Curtains/Curtains")
+jumpscare = NodePath("World/Stage/Jumpscare")
+menu_game_over_mode = "res://assets/scenes/CurtainMain.tscn"
 
 [node name="World" type="Node" parent="." unique_id=1699964275]
 
@@ -95,18 +98,22 @@ texture = ExtResource("10_jkhbp")
 
 [node name="Stage" type="Node" parent="World" unique_id=1202452938]
 
-[node name="StageSingle" type="Sprite2D" parent="World/Stage" unique_id=1749084055]
-visible = false
-position = Vector2(910.00006, 608)
-scale = Vector2(8.338673, 5.9624996)
-texture = ExtResource("3_fe3tk")
-metadata/_edit_lock_ = true
-
 [node name="Stage" type="Sprite2D" parent="World/Stage" unique_id=969645194]
 position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
 metadata/_edit_lock_ = true
+
+[node name="Jumpscare" parent="World/Stage" unique_id=1559867996 instance=ExtResource("11_byliy")]
+preview_animation = "Hand Up"
+visible = false
+position = Vector2(919.0001, 696)
+scale = Vector2(0.4, 0.4)
+
+[node name="StageSingle" type="Sprite2D" parent="World/Stage" unique_id=1749084055]
+position = Vector2(914.99994, 525)
+scale = Vector2(7.2947264, 8.620269)
+texture = ExtResource("3_fe3tk")
 
 [node name="FG" type="Node" parent="World" unique_id=1553769669]
 
@@ -227,6 +234,7 @@ game_icons = {
 script = ExtResource("15_1cyg4")
 layers = [NodePath("../../Group Curtains/Curtains")]
 
+[connection signal="game_over" from="." to="CanvasLayer/PauseBox" method="minigame_block_pause_visual"]
 [connection signal="start_closing_curtains" from="World/FG/Wheel" to="CanvasLayer/PauseBox" method="minigame_block_pause_visual"]
 [connection signal="lever_pulled" from="World/FG/Lever" to="World/FG/Wheel" method="_on_lever_lever_pulled"]
 [connection signal="on_close" from="Group Curtains/Curtains" to="CanvasLayer/PauseBox" method="show_pause"]
