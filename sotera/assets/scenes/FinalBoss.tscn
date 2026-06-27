@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dswaovw6ecers" path="res://assets/images/mc_boss_hand.png" id="10_u6exl"]
 [ext_resource type="Script" uid="uid://do3uhuvt6gysq" path="res://assets/scenes/screen_shake.gd" id="11_klscq"]
 [ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="12_05l7r"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="13_mha1t"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
@@ -265,17 +266,16 @@ position = Vector2(960.00006, 540)
 scale = Vector2(6, 6)
 texture = ExtResource("3_1hrp2")
 
-[node name="Control" parent="." unique_id=233616670 instance=ExtResource("3_loflm")]
-layout_mode = 1
-layout_direction = 2
+[node name="UI" type="CanvasLayer" parent="." unique_id=1103896552]
 
-[node name="Hearts" parent="Control" index="0" unique_id=960481075]
-offset_left = 33.43
-offset_right = 362.43
+[node name="CRT" parent="UI" unique_id=719073563 instance=ExtResource("13_mha1t")]
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 7.0
+offset_bottom = 12.0
+metadata/_edit_lock_ = true
 
-[node name="Contracts" parent="Control" index="1" unique_id=629596135]
-offset_left = 31.0
-offset_right = 181.0
+[node name="GUI" parent="UI" unique_id=233616670 instance=ExtResource("3_loflm")]
 
 [node name="Options" type="HBoxContainer" parent="." unique_id=2003478243]
 layout_mode = 1
@@ -378,6 +378,21 @@ position = Vector2(1272, 540)
 sprite_frames = SubResource("SpriteFrames_syr0s")
 autoplay = "default"
 
+[node name="BossFlashComponent" type="Node" parent="." unique_id=633253812 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../BossAnimatedSprite")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
+[node name="PlayerFlashComponent" type="Node" parent="." unique_id=117863802 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../PlayerAnimatedSprite")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
+[node name="McBossHand" type="Sprite2D" parent="." unique_id=1473106677]
+position = Vector2(918, 883)
+scale = Vector2(6, 6)
+texture = ExtResource("10_u6exl")
+
 [node name="BossHealthBar" type="ProgressBar" parent="." unique_id=1510013361]
 layout_mode = 1
 anchors_preset = 5
@@ -394,28 +409,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_syr0s")
 value = 50.0
 show_percentage = false
 
-[node name="BossFlashComponent" type="Node" parent="." unique_id=633253812 node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("7_8xf35")
-sprite_2d = NodePath("../BossAnimatedSprite")
-metadata/_custom_type_script = "uid://buoih526378b8"
-
-[node name="PlayerFlashComponent" type="Node" parent="." unique_id=117863802 node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("7_8xf35")
-sprite_2d = NodePath("../PlayerAnimatedSprite")
-metadata/_custom_type_script = "uid://buoih526378b8"
-
-[node name="McBossHand" type="Sprite2D" parent="." unique_id=1473106677]
-position = Vector2(918, 883)
-scale = Vector2(6, 6)
-texture = ExtResource("10_u6exl")
-
 [node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
 position = Vector2(960, 540)
 script = ExtResource("11_klscq")
 
 [node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("12_05l7r")]
+visible = false
 
 [node name="The end" type="Label" parent="." unique_id=1483056327]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -432,5 +434,3 @@ horizontal_alignment = 1
 
 [connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
 [connection signal="mouse_entered" from="Options/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
-
-[editable path="Control"]

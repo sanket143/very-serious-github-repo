@@ -11,6 +11,7 @@ enum Answers {A, B ,C, D}
 @onready var boss_flash_component: FlashComponent = $BossFlashComponent
 @onready var player_flash_component: FlashComponent = $PlayerFlashComponent
 @onready var shake_camera_2d: Camera2D = $ShakeCamera2D
+@onready var gui: Control = $UI/GUI
 
 
 @export var boss_max_health: int
@@ -99,10 +100,8 @@ func on_wrong_question() -> void:
 	shake_camera_2d.add_trauma(randf_range(0.3, 0.5))
 	SoundPool.play_sound(SoundPool.UI_WRONG)
 
-	if Globals.Lives <= 0:
-		on_player_death()
-
 func on_boss_death() -> void:
+	gui.hide()
 	MusicPlayer.stop_track(1.0)
 	SoundPool.play_sound(SoundPool.BOSS_DEATH)
 	$Curtains.show()
@@ -110,7 +109,3 @@ func on_boss_death() -> void:
 	
 	await $Curtains.on_close
 	$"The end".show()
-
-func on_player_death() -> void:
-	Events.game_over.emit()
-	SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
